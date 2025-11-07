@@ -1,0 +1,3 @@
+b2bconnector:
+  resource: ../../../../app/Plugin/B2BConnector/Resource/config/routes.yaml
+  type: yaml

@@ -1,0 +1,26 @@
+{
+  "name": "your-vendor/b2b-connector",
+  "description": "B2B Connector plugin (EC-CUBE 4.3.1) - product & SKU ext fields",
+  "type": "eccube-plugin",
+  "version": "1.0.0",
+  "license": "proprietary",
+  "require": {
+    "php": ">=7.4",
+    "ext-json": "*",
+    "ec-cube/plugin-installer": "^2.0"
+  },
+  "autoload": {"psr-4": {"Plugin\\B2BConnector\\": ""}},
+  "extra": {
+    "code": "B2BConnector",
+    "caption": "B2B Connector",
+    "version": "1.0.0",
+    "category": "front",
+    "compatible": ["4.3.1"],
+    "event": "Plugin\\B2BConnector\\Event",
+    "migration": "Plugin\\B2BConnector\\Migration",
+    "orm.path": ["Entity"],
+    "service": ["Resource/config/services.yaml"],
+    "routing": ["Resource/config/routes.yaml"],
+    "priority": 100
+  }
+}

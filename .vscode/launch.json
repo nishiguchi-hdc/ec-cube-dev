@@ -1,0 +1,15 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+
+    {
+      "name": "EC-CUBE デバッグ (Xdebug)",
+      "type": "php",
+      "request": "launch",
+      "port": 9003,
+      "pathMappings": {
+        "C:\\xampp\\htdocs\\ec-cube-dev": "C:\\xampp\\htdocs\\ec-cube-dev"
+      }
+    }
+  ]
+}

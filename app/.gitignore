@@ -1,0 +1,90 @@
+# ===== OS/Editor =====
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.php~
+*.neon
+
+# ===== Composer / Node =====
+composer.phar
+/vendor/
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# ===== EC-CUBE runtime =====
+/var/*
+!/var/.gitkeep
+!/var/.htaccess
+/html/template_c/
+
+# ===== Secrets / maintenance =====
+.env
+.env.local
+.env.*.local
+.maintenance
+/app/config/eccube/database.yml
+/app/config/eccube/path.yml
+
+# ===== App proxy (generated) =====
+/app/proxy/*
+!/app/proxy/.gitkeep
+
+# ===== Plugins =====
+# プラグイン本体は追跡したいので「全除外」はやめる。
+# 代わりに各プラグイン配下の生成物だけを除外する。
+/app/Plugin/*/vendor/
+/app/Plugin/*/var/
+/app/Plugin/*/Resource/tmp/
+/app/Plugin/*/.env
+/app/Plugin/*/.idea/
+/app/Plugin/*/.vscode
+# （必要なら .gitkeep を置いてください）
+!/app/Plugin/.gitkeep
+
+# ===== PluginData =====
+/app/PluginData/*
+!/app/PluginData/.gitkeep
+
+# ===== app/template（コア上書きテンプレート） =====
+# 旧ignoreは app/template/* を丸ごと無視していたが、
+# ここは上書きtwigをコミットしたいケースが多いので「除外しない」運用に変更。
+# 必要なら個別に ignore を追加してください。
+# （例：キャッシュでなければ基本追跡OK）
+# /app/template/*  ← 不要なので削除
+
+# ===== html 配下 =====
+/html/plugin/*
+!/html/plugin/.gitkeep
+
+/html/upload/save_image/*
+!/html/upload/save_image/.gitkeep
+!/html/upload/save_image/no_image_product.png
+
+/html/upload/temp_image/*
+!/html/upload/temp_image/.gitkeep
+
+# テーマ類は基本追跡したいので一括除外はしない
+# /html/template/* ← 不要なので削除
+/html/template/install/
+
+# user_data はアップロード物が混ざるため原則除外
+/html/user_data/*
+!/html/user_data/.gitkeep
+!/html/user_data/assets/css/customize.css
+!/html/user_data/assets/js/customize.js
+
+# ===== Reports / tests tmp =====
+/tests/tmp/*
+/reports/*
+
+# ===== PHPUnit / CS Fixer =====
+###> symfony/phpunit-bridge ###
+.phpunit
+/phpunit.xml
+###< symfony/phpunit-bridge ###
+###> friendsofphp/php-cs-fixer ###
+/.php-cs-fixer.cache
+/.php-cs-fixer.*.php
+###< friendsofphp/php-cs-fixer ###

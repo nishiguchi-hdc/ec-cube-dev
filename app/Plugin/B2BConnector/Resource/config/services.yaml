@@ -1,0 +1,39 @@
+services:
+  Plugin\B2BConnector\:
+    resource: '../../*'
+    exclude: '../../{composer.json,Resource,Migration,Entity,Repository}/'
+
+  Plugin\B2BConnector\Event\AdminProductSubscriber:
+    public: true
+    autowire: true
+    autoconfigure: true
+    tags:
+      - { name: kernel.event_subscriber }
+
+  Plugin\B2BConnector\Event\TemplateSubscriber:
+    tags:
+      - { name: kernel.event_subscriber }
+
+  Plugin\B2BConnector\Event\AdminCustomerSubscriber:
+    public: true
+    autowire: true
+    autoconfigure: true
+    tags: ['kernel.event_subscriber']
+
+  Plugin\B2BConnector\Event\AdminCustomerAddressSubscriber:
+    public: true
+    autowire: true
+    autoconfigure: true
+    tags: ['kernel.event_subscriber']
+
+  Plugin\B2BConnector\Event\AdminOrderShippingSubscriber:
+    public: true
+    autowire: true
+    autoconfigure: true
+    tags: ['kernel.event_subscriber']
+
+  Plugin\B2BConnector\Event\AdminRouteGuardSubscriber:
+    public: true
+    autowire: true
+    autoconfigure: true
+    tags: ['kernel.event_subscriber']
