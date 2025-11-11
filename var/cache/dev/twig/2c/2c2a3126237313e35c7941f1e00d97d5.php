@@ -67,6 +67,8 @@ use Plugin\\B2BConnector\\Form\\Type\\Admin\\CustomerExtType;
 use Psr\\Log\\LoggerInterface;
 use Symfony\\Component\\EventDispatcher\\EventSubscriberInterface;
 use Symfony\\Component\\Form\\FormFactoryInterface;
+use Symfony\\Component\\Form\\FormInterface;
+
 
 class AdminCustomerSubscriber implements EventSubscriberInterface
 {
@@ -79,83 +81,9 @@ class AdminCustomerSubscriber implements EventSubscriberInterface
     public static function getSubscribedEvents(): array
     {
         // EC-CUBE 4.3 の管理画面：顧客編集（一覧→編集の画面）
-        return [
-            EccubeEvents::ADMIN_CUSTOMER_EDIT_INDEX_INITIALIZE => 'onInitialize',
-            EccubeEvents::ADMIN_CUSTOMER_EDIT_INDEX_COMPLETE   => 'onComplete',
-        ];
+        return [];
     }
 
-    /**
-     * 画面初期化：拡張フォームを差し込み（自由レイアウトで include できるように）
-     */
-    public function onInitialize(EventArgs \$event): void
-    {
-        /** @var Customer|null \$Customer */
-        \$Customer = \$event->getArgument('Customer') ?? null;
-
-        if (\$Customer) {
-            \$ext = \$this->em->getRepository(CustomerExt::class)
-                ->findOneBy(['Customer' => \$Customer]);            
-            if (!\$ext) {
-                \$ext = new CustomerExt();
-                \$ext->setCustomer(\$Customer);
-            }
-        } else {
-            \$ext = new CustomerExt();
-        }
-
-        // ★ form / builder の両対応
-        if (\$event->hasArgument('form')) {
-            \$form = \$event->getArgument('form');
-            \$form->add('customer_ext', CustomerExtType::class, [
-                'data' => \$ext,
-                'mapped' => false,
-            ]);
-        } elseif (\$event->hasArgument('builder')) {
-            \$builder = \$event->getArgument('builder');
-            \$builder->add('customer_ext', CustomerExtType::class, [
-                'data' => \$ext,
-                'mapped' => false,
-            ]);
-        } else {
-            \$this->logger->warning('[B2BConnector] neither \"form\" nor \"builder\" found in initialize args.');
-        }
-    }
-
-    /**
-     * 保存完了前：POST値を CustomerExt に反映して永続化
-     */
-    public function onComplete(EventArgs \$event): void
-    {
-        /** @var Customer \$Customer */
-        \$Customer = \$event->getArgument('Customer');
-        \$form     = \$event->getArgument('form');
-
-        // 念のため存在確認（他プラグイン等の干渉対策）
-        if (!\$form->has('customer_ext')) {
-            \$this->logger->warning('[B2BConnector] customer_ext subform not found on complete.');
-            return;
-        }
-
-        /** @var \\Plugin\\B2BConnector\\Entity\\CustomerExt \$ext */
-        \$ext = \$event->hasArgument('customer_ext_entity')
-            ? \$event->getArgument('customer_ext_entity')
-            : (\$this->em->getRepository(CustomerExt::class)->findOneBy(['Customer' => \$Customer]) ?? (new CustomerExt())->setCustomer(\$Customer));
-
-        if (!\$ext->getCustomer()) {
-            \$ext->setCustomer(\$Customer);
-        }        
-
-        // 必要ならここで空文字→null 等の正規化を行う（任意）
-        // 例）if (\$ext->getFaxNumber() === '') { \$ext->setFaxNumber(null); }
-
-        \$this->em->persist(\$ext);
-        \$this->em->flush();
-
-        \$this->logger->info('[B2BConnector] CustomerExt saved via subform', [
-            'customer_id' => \$Customer->getId(),
-        ]);
-    }
 }
 ";
         
@@ -197,6 +125,8 @@ use Plugin\\B2BConnector\\Form\\Type\\Admin\\CustomerExtType;
 use Psr\\Log\\LoggerInterface;
 use Symfony\\Component\\EventDispatcher\\EventSubscriberInterface;
 use Symfony\\Component\\Form\\FormFactoryInterface;
+use Symfony\\Component\\Form\\FormInterface;
+
 
 class AdminCustomerSubscriber implements EventSubscriberInterface
 {
@@ -209,83 +139,9 @@ class AdminCustomerSubscriber implements EventSubscriberInterface
     public static function getSubscribedEvents(): array
     {
         // EC-CUBE 4.3 の管理画面：顧客編集（一覧→編集の画面）
-        return [
-            EccubeEvents::ADMIN_CUSTOMER_EDIT_INDEX_INITIALIZE => 'onInitialize',
-            EccubeEvents::ADMIN_CUSTOMER_EDIT_INDEX_COMPLETE   => 'onComplete',
-        ];
+        return [];
     }
 
-    /**
-     * 画面初期化：拡張フォームを差し込み（自由レイアウトで include できるように）
-     */
-    public function onInitialize(EventArgs \$event): void
-    {
-        /** @var Customer|null \$Customer */
-        \$Customer = \$event->getArgument('Customer') ?? null;
-
-        if (\$Customer) {
-            \$ext = \$this->em->getRepository(CustomerExt::class)
-                ->findOneBy(['Customer' => \$Customer]);            
-            if (!\$ext) {
-                \$ext = new CustomerExt();
-                \$ext->setCustomer(\$Customer);
-            }
-        } else {
-            \$ext = new CustomerExt();
-        }
-
-        // ★ form / builder の両対応
-        if (\$event->hasArgument('form')) {
-            \$form = \$event->getArgument('form');
-            \$form->add('customer_ext', CustomerExtType::class, [
-                'data' => \$ext,
-                'mapped' => false,
-            ]);
-        } elseif (\$event->hasArgument('builder')) {
-            \$builder = \$event->getArgument('builder');
-            \$builder->add('customer_ext', CustomerExtType::class, [
-                'data' => \$ext,
-                'mapped' => false,
-            ]);
-        } else {
-            \$this->logger->warning('[B2BConnector] neither \"form\" nor \"builder\" found in initialize args.');
-        }
-    }
-
-    /**
-     * 保存完了前：POST値を CustomerExt に反映して永続化
-     */
-    public function onComplete(EventArgs \$event): void
-    {
-        /** @var Customer \$Customer */
-        \$Customer = \$event->getArgument('Customer');
-        \$form     = \$event->getArgument('form');
-
-        // 念のため存在確認（他プラグイン等の干渉対策）
-        if (!\$form->has('customer_ext')) {
-            \$this->logger->warning('[B2BConnector] customer_ext subform not found on complete.');
-            return;
-        }
-
-        /** @var \\Plugin\\B2BConnector\\Entity\\CustomerExt \$ext */
-        \$ext = \$event->hasArgument('customer_ext_entity')
-            ? \$event->getArgument('customer_ext_entity')
-            : (\$this->em->getRepository(CustomerExt::class)->findOneBy(['Customer' => \$Customer]) ?? (new CustomerExt())->setCustomer(\$Customer));
-
-        if (!\$ext->getCustomer()) {
-            \$ext->setCustomer(\$Customer);
-        }        
-
-        // 必要ならここで空文字→null 等の正規化を行う（任意）
-        // 例）if (\$ext->getFaxNumber() === '') { \$ext->setFaxNumber(null); }
-
-        \$this->em->persist(\$ext);
-        \$this->em->flush();
-
-        \$this->logger->info('[B2BConnector] CustomerExt saved via subform', [
-            'customer_id' => \$Customer->getId(),
-        ]);
-    }
 }
 ", "B2BConnector/Event/AdminCustomerSubscriber.php", "C:\\xampp\\htdocs\\ec-cube-dev\\app\\Plugin\\B2BConnector\\Event\\AdminCustomerSubscriber.php");
     }

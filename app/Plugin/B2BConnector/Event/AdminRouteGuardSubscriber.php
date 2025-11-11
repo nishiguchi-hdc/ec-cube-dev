@@ -21,7 +21,9 @@ class AdminRouteGuardSubscriber implements EventSubscriberInterface
         $route = $request->attributes->get('_route');
 
         if ($route === 'admin_product_product_class') {
-            throw new NotFoundHttpException('BtoBモードでは規格編集画面は無効です。');
+            throw new NotFoundHttpException('規格編集画面は無効です。');
+        } elseif ($route === 'admin_shipping_edit') {
+            throw new NotFoundHttpException('出荷編集画面は無効です。');
         }
     }
 }

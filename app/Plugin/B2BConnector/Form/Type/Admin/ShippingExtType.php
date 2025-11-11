@@ -14,11 +14,11 @@ class ShippingExtType extends AbstractType
     {
         $builder
             ->add('depart_name', TextType::class, [
-                'label' => '配送先 部署名',
+                'label' => '部署名',
                 'required' => false,
             ])
             ->add('pic_name', TextType::class, [
-                'label' => '配送先 担当者',
+                'label' => '担当者',
                 'required' => false,
             ]);
     }

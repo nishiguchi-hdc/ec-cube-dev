@@ -294,7 +294,7 @@ file that was distributed with this source code.
                                     </div>
                                 {% endif %}
 
-{% if form.product_class_ext is defined %}
+{% if form.class.product_class_ext is defined %}
     <div class="row mt-2">
         <div class="col-3">
             <div class="d-inline-block" data-bs-toggle="tooltip" data-bs-placement="top" title="品番">
@@ -302,8 +302,8 @@ file that was distributed with this source code.
             </div>
         </div>
         <div class="col mb-2">
-            {{ form_widget(form.product_class_ext.item_code) }}
-            {{ form_errors(form.product_class_ext.item_code) }}
+            {{ form_widget(form.class.product_class_ext.item_code) }}
+            {{ form_errors(form.class.product_class_ext.item_code) }}
         </div>
     </div>
 {% endif %}
@@ -464,7 +464,7 @@ file that was distributed with this source code.
                                         </div>
                                     </div>
                                 {% endif %}
-{% if form.product_class_ext is defined %}
+{% if form.class.product_class_ext is defined %}
     <div class="row mt-2">
         <div class="col-3">
             <div class="d-inline-block" data-bs-toggle="tooltip" data-bs-placement="top" title="品番">
@@ -472,8 +472,8 @@ file that was distributed with this source code.
             </div>
         </div>
         <div class="col mb-2">
-            {{ form_widget(form.product_class_ext.tax_category) }}
-            {{ form_errors(form.product_class_ext.tax_category) }}
+            {{ form_widget(form.class.product_class_ext.tax_category) }}
+            {{ form_errors(form.class.product_class_ext.tax_category) }}
         </div>
     </div>
 {% endif %}
@@ -509,7 +509,7 @@ file that was distributed with this source code.
                                         </div>
                                     </div>
                                 {% endif %}
-{% if form.product_class_ext is defined %}
+{% if form.class.product_class_ext is defined %}
     <div class="row mt-2">
         <div class="col-3">
             <div class="d-inline-block" data-bs-toggle="tooltip" data-bs-placement="top" title="品番">
@@ -517,12 +517,12 @@ file that was distributed with this source code.
             </div>
         </div>
         <div class="col mb-2">
-            {{ form_widget(form.product_class_ext.jan_code) }}
-            {{ form_errors(form.product_class_ext.jan_code) }}
+            {{ form_widget(form.class.product_class_ext.jan_code) }}
+            {{ form_errors(form.class.product_class_ext.jan_code) }}
         </div>
     </div>
 {% endif %}
-{% if form.product_class_ext is defined %}
+{% if form.class.product_class_ext is defined %}
     <div class="row mt-2">
         <div class="col-3">
             <div class="d-inline-block" data-bs-toggle="tooltip" data-bs-placement="top" title="品番">
@@ -530,12 +530,12 @@ file that was distributed with this source code.
             </div>
         </div>
         <div class="col mb-2">
-            {{ form_widget(form.product_class_ext.display_order) }}
-            {{ form_errors(form.product_class_ext.display_order) }}
+            {{ form_widget(form.class.product_class_ext.display_order) }}
+            {{ form_errors(form.class.product_class_ext.display_order) }}
         </div>
     </div>
 {% endif %}
-{% if form.product_class_ext is defined %}
+{% if form.class.product_class_ext is defined %}
     <div class="row mt-2">
         <div class="col-3">
             <div class="d-inline-block" data-bs-toggle="tooltip" data-bs-placement="top" title="品番">
@@ -543,8 +543,8 @@ file that was distributed with this source code.
             </div>
         </div>
         <div class="col mb-2">
-            {{ form_widget(form.product_class_ext.is_visible) }}
-            {{ form_errors(form.product_class_ext.is_visible) }}
+            {{ form_widget(form.class.product_class_ext.is_visible) }}
+            {{ form_errors(form.class.product_class_ext.is_visible) }}
         </div>
     </div>
 {% endif %}

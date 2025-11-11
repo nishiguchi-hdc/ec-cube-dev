@@ -597,7 +597,7 @@ class __TwigTemplate_60ea711373bee348e866610bad6a45be extends Template
         echo "
 ";
         // line 297
-        if (twig_get_attribute($this->env, $this->source, ($context["form"] ?? null), "product_class_ext", [], "any", true, true, true, 297)) {
+        if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["form"] ?? null), "class", [], "any", false, true, true, 297), "product_class_ext", [], "any", true, true, true, 297)) {
             // line 298
             echo "    <div class=\"row mt-2\">
         <div class=\"col-3\">
@@ -608,11 +608,11 @@ class __TwigTemplate_60ea711373bee348e866610bad6a45be extends Template
         <div class=\"col mb-2\">
             ";
             // line 305
-            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 305, $this->source); })()), "product_class_ext", [], "any", false, false, true, 305), "item_code", [], "any", false, false, true, 305), 305, $this->source), 'widget');
+            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 305, $this->source); })()), "class", [], "any", false, false, true, 305), "product_class_ext", [], "any", false, false, true, 305), "item_code", [], "any", false, false, true, 305), 305, $this->source), 'widget');
             echo "
             ";
             // line 306
-            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 306, $this->source); })()), "product_class_ext", [], "any", false, false, true, 306), "item_code", [], "any", false, false, true, 306), 306, $this->source), 'errors');
+            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 306, $this->source); })()), "class", [], "any", false, false, true, 306), "product_class_ext", [], "any", false, false, true, 306), "item_code", [], "any", false, false, true, 306), 306, $this->source), 'errors');
             echo "
         </div>
     </div>
@@ -882,7 +882,7 @@ class __TwigTemplate_60ea711373bee348e866610bad6a45be extends Template
                                 ";
         }
         // line 467
-        if (twig_get_attribute($this->env, $this->source, ($context["form"] ?? null), "product_class_ext", [], "any", true, true, true, 467)) {
+        if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["form"] ?? null), "class", [], "any", false, true, true, 467), "product_class_ext", [], "any", true, true, true, 467)) {
             // line 468
             echo "    <div class=\"row mt-2\">
         <div class=\"col-3\">
@@ -893,11 +893,11 @@ class __TwigTemplate_60ea711373bee348e866610bad6a45be extends Template
         <div class=\"col mb-2\">
             ";
             // line 475
-            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 475, $this->source); })()), "product_class_ext", [], "any", false, false, true, 475), "tax_category", [], "any", false, false, true, 475), 475, $this->source), 'widget');
+            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 475, $this->source); })()), "class", [], "any", false, false, true, 475), "product_class_ext", [], "any", false, false, true, 475), "tax_category", [], "any", false, false, true, 475), 475, $this->source), 'widget');
             echo "
             ";
             // line 476
-            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 476, $this->source); })()), "product_class_ext", [], "any", false, false, true, 476), "tax_category", [], "any", false, false, true, 476), 476, $this->source), 'errors');
+            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 476, $this->source); })()), "class", [], "any", false, false, true, 476), "product_class_ext", [], "any", false, false, true, 476), "tax_category", [], "any", false, false, true, 476), 476, $this->source), 'errors');
             echo "
         </div>
     </div>
@@ -969,7 +969,7 @@ class __TwigTemplate_60ea711373bee348e866610bad6a45be extends Template
                                 ";
         }
         // line 512
-        if (twig_get_attribute($this->env, $this->source, ($context["form"] ?? null), "product_class_ext", [], "any", true, true, true, 512)) {
+        if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["form"] ?? null), "class", [], "any", false, true, true, 512), "product_class_ext", [], "any", true, true, true, 512)) {
             // line 513
             echo "    <div class=\"row mt-2\">
         <div class=\"col-3\">
@@ -980,18 +980,18 @@ class __TwigTemplate_60ea711373bee348e866610bad6a45be extends Template
         <div class=\"col mb-2\">
             ";
             // line 520
-            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 520, $this->source); })()), "product_class_ext", [], "any", false, false, true, 520), "jan_code", [], "any", false, false, true, 520), 520, $this->source), 'widget');
+            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 520, $this->source); })()), "class", [], "any", false, false, true, 520), "product_class_ext", [], "any", false, false, true, 520), "jan_code", [], "any", false, false, true, 520), 520, $this->source), 'widget');
             echo "
             ";
             // line 521
-            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 521, $this->source); })()), "product_class_ext", [], "any", false, false, true, 521), "jan_code", [], "any", false, false, true, 521), 521, $this->source), 'errors');
+            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 521, $this->source); })()), "class", [], "any", false, false, true, 521), "product_class_ext", [], "any", false, false, true, 521), "jan_code", [], "any", false, false, true, 521), 521, $this->source), 'errors');
             echo "
         </div>
     </div>
 ";
         }
         // line 525
-        if (twig_get_attribute($this->env, $this->source, ($context["form"] ?? null), "product_class_ext", [], "any", true, true, true, 525)) {
+        if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["form"] ?? null), "class", [], "any", false, true, true, 525), "product_class_ext", [], "any", true, true, true, 525)) {
             // line 526
             echo "    <div class=\"row mt-2\">
         <div class=\"col-3\">
@@ -1002,18 +1002,18 @@ class __TwigTemplate_60ea711373bee348e866610bad6a45be extends Template
         <div class=\"col mb-2\">
             ";
             // line 533
-            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 533, $this->source); })()), "product_class_ext", [], "any", false, false, true, 533), "display_order", [], "any", false, false, true, 533), 533, $this->source), 'widget');
+            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 533, $this->source); })()), "class", [], "any", false, false, true, 533), "product_class_ext", [], "any", false, false, true, 533), "display_order", [], "any", false, false, true, 533), 533, $this->source), 'widget');
             echo "
             ";
             // line 534
-            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 534, $this->source); })()), "product_class_ext", [], "any", false, false, true, 534), "display_order", [], "any", false, false, true, 534), 534, $this->source), 'errors');
+            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 534, $this->source); })()), "class", [], "any", false, false, true, 534), "product_class_ext", [], "any", false, false, true, 534), "display_order", [], "any", false, false, true, 534), 534, $this->source), 'errors');
             echo "
         </div>
     </div>
 ";
         }
         // line 538
-        if (twig_get_attribute($this->env, $this->source, ($context["form"] ?? null), "product_class_ext", [], "any", true, true, true, 538)) {
+        if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["form"] ?? null), "class", [], "any", false, true, true, 538), "product_class_ext", [], "any", true, true, true, 538)) {
             // line 539
             echo "    <div class=\"row mt-2\">
         <div class=\"col-3\">
@@ -1024,11 +1024,11 @@ class __TwigTemplate_60ea711373bee348e866610bad6a45be extends Template
         <div class=\"col mb-2\">
             ";
             // line 546
-            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 546, $this->source); })()), "product_class_ext", [], "any", false, false, true, 546), "is_visible", [], "any", false, false, true, 546), 546, $this->source), 'widget');
+            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 546, $this->source); })()), "class", [], "any", false, false, true, 546), "product_class_ext", [], "any", false, false, true, 546), "is_visible", [], "any", false, false, true, 546), 546, $this->source), 'widget');
             echo "
             ";
             // line 547
-            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 547, $this->source); })()), "product_class_ext", [], "any", false, false, true, 547), "is_visible", [], "any", false, false, true, 547), 547, $this->source), 'errors');
+            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->sandbox->ensureToStringAllowed(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 547, $this->source); })()), "class", [], "any", false, false, true, 547), "product_class_ext", [], "any", false, false, true, 547), "is_visible", [], "any", false, false, true, 547), 547, $this->source), 'errors');
             echo "
         </div>
     </div>
@@ -2250,7 +2250,7 @@ file that was distributed with this source code.
                                     </div>
                                 {% endif %}
 
-{% if form.product_class_ext is defined %}
+{% if form.class.product_class_ext is defined %}
     <div class=\"row mt-2\">
         <div class=\"col-3\">
             <div class=\"d-inline-block\" data-bs-toggle=\"tooltip\" data-bs-placement=\"top\" title=\"品番\">
@@ -2258,8 +2258,8 @@ file that was distributed with this source code.
             </div>
         </div>
         <div class=\"col mb-2\">
-            {{ form_widget(form.product_class_ext.item_code) }}
-            {{ form_errors(form.product_class_ext.item_code) }}
+            {{ form_widget(form.class.product_class_ext.item_code) }}
+            {{ form_errors(form.class.product_class_ext.item_code) }}
         </div>
     </div>
 {% endif %}
@@ -2420,7 +2420,7 @@ file that was distributed with this source code.
                                         </div>
                                     </div>
                                 {% endif %}
-{% if form.product_class_ext is defined %}
+{% if form.class.product_class_ext is defined %}
     <div class=\"row mt-2\">
         <div class=\"col-3\">
             <div class=\"d-inline-block\" data-bs-toggle=\"tooltip\" data-bs-placement=\"top\" title=\"品番\">
@@ -2428,8 +2428,8 @@ file that was distributed with this source code.
             </div>
         </div>
         <div class=\"col mb-2\">
-            {{ form_widget(form.product_class_ext.tax_category) }}
-            {{ form_errors(form.product_class_ext.tax_category) }}
+            {{ form_widget(form.class.product_class_ext.tax_category) }}
+            {{ form_errors(form.class.product_class_ext.tax_category) }}
         </div>
     </div>
 {% endif %}
@@ -2465,7 +2465,7 @@ file that was distributed with this source code.
                                         </div>
                                     </div>
                                 {% endif %}
-{% if form.product_class_ext is defined %}
+{% if form.class.product_class_ext is defined %}
     <div class=\"row mt-2\">
         <div class=\"col-3\">
             <div class=\"d-inline-block\" data-bs-toggle=\"tooltip\" data-bs-placement=\"top\" title=\"品番\">
@@ -2473,12 +2473,12 @@ file that was distributed with this source code.
             </div>
         </div>
         <div class=\"col mb-2\">
-            {{ form_widget(form.product_class_ext.jan_code) }}
-            {{ form_errors(form.product_class_ext.jan_code) }}
+            {{ form_widget(form.class.product_class_ext.jan_code) }}
+            {{ form_errors(form.class.product_class_ext.jan_code) }}
         </div>
     </div>
 {% endif %}
-{% if form.product_class_ext is defined %}
+{% if form.class.product_class_ext is defined %}
     <div class=\"row mt-2\">
         <div class=\"col-3\">
             <div class=\"d-inline-block\" data-bs-toggle=\"tooltip\" data-bs-placement=\"top\" title=\"品番\">
@@ -2486,12 +2486,12 @@ file that was distributed with this source code.
             </div>
         </div>
         <div class=\"col mb-2\">
-            {{ form_widget(form.product_class_ext.display_order) }}
-            {{ form_errors(form.product_class_ext.display_order) }}
+            {{ form_widget(form.class.product_class_ext.display_order) }}
+            {{ form_errors(form.class.product_class_ext.display_order) }}
         </div>
     </div>
 {% endif %}
-{% if form.product_class_ext is defined %}
+{% if form.class.product_class_ext is defined %}
     <div class=\"row mt-2\">
         <div class=\"col-3\">
             <div class=\"d-inline-block\" data-bs-toggle=\"tooltip\" data-bs-placement=\"top\" title=\"品番\">
@@ -2499,8 +2499,8 @@ file that was distributed with this source code.
             </div>
         </div>
         <div class=\"col mb-2\">
-            {{ form_widget(form.product_class_ext.is_visible) }}
-            {{ form_errors(form.product_class_ext.is_visible) }}
+            {{ form_widget(form.class.product_class_ext.is_visible) }}
+            {{ form_errors(form.class.product_class_ext.is_visible) }}
         </div>
     </div>
 {% endif %}

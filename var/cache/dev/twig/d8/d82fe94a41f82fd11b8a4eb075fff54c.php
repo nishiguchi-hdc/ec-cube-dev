@@ -82,11 +82,58 @@ class __TwigTemplate_b38fe3c72d079ec70804b1a37898d093 extends Template
     autoconfigure: true
     tags: ['kernel.event_subscriber']
 
-  Plugin\\B2BConnector\\Event\\AdminOrderShippingSubscriber:
+  Plugin\\B2BConnector\\Event\\AdminOrderSubscriber:
     public: true
     autowire: true
     autoconfigure: true
     tags: ['kernel.event_subscriber']
+
+  Plugin\\B2BConnector\\Event\\AdminRouteGuardSubscriber:
+    public: true
+    autowire: true
+    autoconfigure: true
+    tags: ['kernel.event_subscriber']
+
+  Plugin\\B2BConnector\\Form\\Extension\\AdminOrderTypeExtension:
+    public: true
+    autowire: true
+    autoconfigure: true
+    tags: ['form.type_extension']
+
+  Plugin\\B2BConnector\\Form\\Extension\\AdminShippingTypeExtension:
+    public: true
+    autowire: true
+    autoconfigure: true
+    tags: ['form.type_extension']
+
+  Plugin\\B2BConnector\\Form\\Extension\\AdminCustomerTypeExtension:
+    public: true
+    autowire: true
+    autoconfigure: true
+    tags: ['form.type_extension']
+
+  Plugin\\B2BConnector\\Form\\Extension\\AdminProductTypeExtension:
+    public: true
+    autowire: true
+    autoconfigure: true
+    tags: ['form.type_extension']
+
+  Plugin\\B2BConnector\\Form\\Extension\\AdminProductClassTypeExtension:
+    public: true
+    autowire: true
+    autoconfigure: true
+    tags: ['form.type_extension']
+
+  Plugin\\B2BConnector\\Form\\Extension\\CustomerAddressTypeExtension:
+    public: true
+    autowire: true
+    autoconfigure: true
+    tags: ['form.type_extension']
+
+  Plugin\\B2BConnector\\Form\\Type\\Admin\\OrderExtType:
+    public: true
+    autowire: true
+    autoconfigure: true
 ";
         
         $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
@@ -142,11 +189,58 @@ class __TwigTemplate_b38fe3c72d079ec70804b1a37898d093 extends Template
     autoconfigure: true
     tags: ['kernel.event_subscriber']
 
-  Plugin\\B2BConnector\\Event\\AdminOrderShippingSubscriber:
+  Plugin\\B2BConnector\\Event\\AdminOrderSubscriber:
     public: true
     autowire: true
     autoconfigure: true
     tags: ['kernel.event_subscriber']
+
+  Plugin\\B2BConnector\\Event\\AdminRouteGuardSubscriber:
+    public: true
+    autowire: true
+    autoconfigure: true
+    tags: ['kernel.event_subscriber']
+
+  Plugin\\B2BConnector\\Form\\Extension\\AdminOrderTypeExtension:
+    public: true
+    autowire: true
+    autoconfigure: true
+    tags: ['form.type_extension']
+
+  Plugin\\B2BConnector\\Form\\Extension\\AdminShippingTypeExtension:
+    public: true
+    autowire: true
+    autoconfigure: true
+    tags: ['form.type_extension']
+
+  Plugin\\B2BConnector\\Form\\Extension\\AdminCustomerTypeExtension:
+    public: true
+    autowire: true
+    autoconfigure: true
+    tags: ['form.type_extension']
+
+  Plugin\\B2BConnector\\Form\\Extension\\AdminProductTypeExtension:
+    public: true
+    autowire: true
+    autoconfigure: true
+    tags: ['form.type_extension']
+
+  Plugin\\B2BConnector\\Form\\Extension\\AdminProductClassTypeExtension:
+    public: true
+    autowire: true
+    autoconfigure: true
+    tags: ['form.type_extension']
+
+  Plugin\\B2BConnector\\Form\\Extension\\CustomerAddressTypeExtension:
+    public: true
+    autowire: true
+    autoconfigure: true
+    tags: ['form.type_extension']
+
+  Plugin\\B2BConnector\\Form\\Type\\Admin\\OrderExtType:
+    public: true
+    autowire: true
+    autoconfigure: true
 ", "B2BConnector/Resource/config/services.yaml", "C:\\xampp\\htdocs\\ec-cube-dev\\app\\Plugin\\B2BConnector\\Resource\\config\\services.yaml");
     }
     

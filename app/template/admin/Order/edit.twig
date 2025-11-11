@@ -395,7 +395,7 @@ file that was distributed with this source code.
                                                 {{ form_errors(form.Customer) }}
                                             </div>
                                         </div>
-                                        <div class="row mb-3">
+                                        <div class="row mb-3 d-none">
                                             <label class="col-3 col-form-label">{{ 'admin.common.name'|trans }}<span class="badge bg-primary ms-1">{{ 'admin.common.required'|trans }}</span></label>
                                             <div class="col">
                                                 <div class="row">
@@ -479,6 +479,22 @@ file that was distributed with this source code.
                                                 {{ form_errors(form.company_name) }}
                                             </div>
                                         </div>
+{% if form.order_ext is defined %}
+<div class="row mb-3">
+    {{ form_label(form.order_ext.depart_name, null, {'label_attr': {'class': 'col-form-label col-sm-3'}}) }}
+    <div class="col">
+        {{ form_widget(form.order_ext.depart_name) }}
+        {{ form_errors(form.order_ext.depart_name) }}
+    </div>
+</div>
+<div class="row mb-3">
+    {{ form_label(form.order_ext.pic_name, null, {'label_attr': {'class': 'col-form-label col-sm-3'}}) }}
+    <div class="col">
+        {{ form_widget(form.order_ext.pic_name) }}
+        {{ form_errors(form.order_ext.pic_name) }}
+    </div>
+</div>
+{% endif %}
                                         <div class="row mb-3">
                                             <label class="col-3 col-form-label">{{ 'admin.order.message'|trans }}</label>
                                             <div class="col">
@@ -528,12 +544,14 @@ file that was distributed with this source code.
                                                 <a class="btn btn-ec-regular pdf-print" href="{{ url('admin_order_export_pdf') }}?ids[]={{ Order.Shippings[0].id }}">{{ 'admin.order.output_delivery_note'|trans }}</a>
                                             {% endif %}
                                         </div>
+{#
                                         {% if Order.id is not empty %}
                                             <div class="col-6 text-end">
                                                 <a id="shipping-add" class="btn btn-ec-regular w-25" data-action="confirm" title="{{ 'admin.common.move_to_confirm_message'|trans({'%name%' : 'admin.order.shipping_registration'|trans
                                            }) }}" href="{{ path("admin_shipping_edit", {id: Order.id}) }}">{{ 'admin.order.add_shipping'|trans }}</a>
                                             </div>
                                         {% endif %}
+#}
                                     </div>
                                     <div class="row h-adr">
                                         <span class="p-country-name" style="display:none;">Japan</span>
@@ -553,7 +571,7 @@ file that was distributed with this source code.
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="row mb-3">
+                                            <div class="row mb-3 d-none">
                                                 <label class="col-3 col-form-label">{{ 'admin.common.kana'|trans }}<span class="badge bg-primary ms-1">{{ 'admin.common.required'|trans }}</span></label>
                                                 <div class="col">
                                                     <div class="row">
@@ -615,37 +633,35 @@ file that was distributed with this source code.
                                                     {{ form_errors(form.Shipping.company_name) }}
                                                 </div>
                                             </div>
+
+
+
+
+
+
+{% if form.Shipping is defined and form.Shipping.shipping_ext is defined %}
+<div class="row mb-3">
+    {{ form_label(form.Shipping.shipping_ext.depart_name, null, {'label_attr': {'class': 'col-form-label col-sm-3'}}) }}
+    <div class="col">
+        {{ form_widget(form.Shipping.shipping_ext.depart_name) }}
+        {{ form_errors(form.Shipping.shipping_ext.depart_name) }}
+    </div>
+</div>
+<div class="row mb-3">
+    {{ form_label(form.Shipping.shipping_ext.pic_name, null, {'label_attr': {'class': 'col-form-label col-sm-3'}}) }}
+    <div class="col">
+        {{ form_widget(form.Shipping.shipping_ext.pic_name) }}
+        {{ form_errors(form.Shipping.shipping_ext.pic_name) }}
+    </div>
+</div>
+{% endif %}
                                         </div>
 
-{# 会社名の直後あたりに #}
-{% if form.Shipping is defined and form.Shipping.shipping_ext is defined %}
-  <div class="row mb-2">
-    <div class="col-sm-3">
-      {{ form_label(form.Shipping.shipping_ext.depart_name, null, {'label_attr': {'class': 'col-form-label col-sm-3'}}) }}
-    </div>
-    <div class="col-sm-9">
-      {{ form_widget(form.Shipping.shipping_ext.depart_name) }}
-      {{ form_errors(form.Shipping.shipping_ext.depart_name) }}
-    </div>
-  </div>
 
-  <div class="row mb-3">
-    <div class="col-sm-3">
-      {{ form_label(form.Shipping.shipping_ext.pic_name, null, {'label_attr': {'class': 'col-form-label col-sm-3'}}) }}
-    </div>
-    <div class="col-sm-9">
-      {{ form_widget(form.Shipping.shipping_ext.pic_name) }}
-      {{ form_errors(form.Shipping.shipping_ext.pic_name) }}
-    </div>
-  </div>
-{% endif %}
-
-
-
-                                        <div class="col-12">
+                                        <div class="col-12 d-none">
                                             <hr>
                                         </div>
-                                        <div class="col-6">
+                                        <div class="col-6 d-none">
                                             <div class="row mb-3">
                                                 <label class="col-3 col-form-label" data-bs-toggle="tooltip" data-bs-placement="top" title="{{ 'tooltip.order.shipping_info.tracking_number'|trans }}">{{ 'admin.order.tracking_number'|trans }}<i class="fa fa-question-circle fa-lg ms-1"></i></label>
                                                 <div class="col">
@@ -668,7 +684,7 @@ file that was distributed with this source code.
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-6">
+                                        <div class="col-6 d-none">
                                             <div class="row mb-3">
                                                 <label class="col-3 col-form-label"><i class="fa fa-calendar-check-o fa-fw me-1" aria-hidden="true"></i>{{ 'admin.order.delivery_date'|trans }}</label>
                                                 <div class="col">
@@ -921,13 +937,13 @@ file that was distributed with this source code.
                                     <div class="col-2 text-end"><span class="h4 align-middle fw-normal">{{ Order.charge|price }}</span></div>
                                 </div>
                                 <!-- 値引き -->
-                                <div class="row justify-content-end mb-3">
+                                <div class="row justify-content-end mb-3 d-none">
                                     <div class="col-auto"><span class="align-middle">{{ 'admin.order.discount'|trans }}</span></div>
                                     <div class="col-2 text-end"><span class="h4 align-middle text-danger fw-normal">{{ Order.taxable_discount|price }}</span></div>
                                 </div>
                                 <hr>
                                 <!-- 合計 -->
-                                <div class="row justify-content-end mb-3">
+                                <div class="row justify-content-end mb-3 d-none">
                                     <div class="col-auto"><span class="align-middle">{{ 'admin.order.total'|trans }}</span></div>
                                     <div class="col-2 text-end"><span class="h4 align-middle fw-normal">{{ Order.taxable_total|price }}</span></div>
                                 </div>
@@ -952,7 +968,7 @@ file that was distributed with this source code.
                                 {% endfor %}
                                 <hr>
                                 <!-- 加算ポイント -->
-                                <div class="row justify-content-end mb-3">
+                                <div class="row justify-content-end mb-3 d-none">
                                     <div class="col-auto"><span class="align-middle">{{ 'admin.order.add_point'|trans }}</span></div>
                                     <div class="col-2 text-end">
                                         <span class="h4 align-middle fw-normal">
@@ -961,7 +977,7 @@ file that was distributed with this source code.
                                     </div>
                                 </div>
                                 <!-- 利用ポイント -->
-                                <div class="row justify-content-end mb-3">
+                                <div class="row justify-content-end mb-3 d-none">
                                     <div class="col-auto"><span class="align-middle">{{ 'admin.order.use_point'|trans }}</span></div>
                                     <div class="col-2 text-end">
                                         <span class="h4 align-middle fw-normal">

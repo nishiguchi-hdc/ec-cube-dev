@@ -26,7 +26,7 @@ services:
     autoconfigure: true
     tags: ['kernel.event_subscriber']
 
-  Plugin\B2BConnector\Event\AdminOrderShippingSubscriber:
+  Plugin\B2BConnector\Event\AdminOrderSubscriber:
     public: true
     autowire: true
     autoconfigure: true
@@ -37,3 +37,44 @@ services:
     autowire: true
     autoconfigure: true
     tags: ['kernel.event_subscriber']
+
+  Plugin\B2BConnector\Form\Extension\AdminOrderTypeExtension:
+    public: true
+    autowire: true
+    autoconfigure: true
+    tags: ['form.type_extension']
+
+  Plugin\B2BConnector\Form\Extension\AdminShippingTypeExtension:
+    public: true
+    autowire: true
+    autoconfigure: true
+    tags: ['form.type_extension']
+
+  Plugin\B2BConnector\Form\Extension\AdminCustomerTypeExtension:
+    public: true
+    autowire: true
+    autoconfigure: true
+    tags: ['form.type_extension']
+
+  Plugin\B2BConnector\Form\Extension\AdminProductTypeExtension:
+    public: true
+    autowire: true
+    autoconfigure: true
+    tags: ['form.type_extension']
+
+  Plugin\B2BConnector\Form\Extension\AdminProductClassTypeExtension:
+    public: true
+    autowire: true
+    autoconfigure: true
+    tags: ['form.type_extension']
+
+  Plugin\B2BConnector\Form\Extension\CustomerAddressTypeExtension:
+    public: true
+    autowire: true
+    autoconfigure: true
+    tags: ['form.type_extension']
+
+  Plugin\B2BConnector\Form\Type\Admin\OrderExtType:
+    public: true
+    autowire: true
+    autoconfigure: true

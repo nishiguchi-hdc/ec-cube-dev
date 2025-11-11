@@ -5665,7 +5665,7 @@ https://www.epsilon.jp/document_dl/index_pdf.html
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
       <argument type="service" id="monolog.logger"/>
     </service>
-    <service id="Plugin\B2BConnector\Event\AdminOrderShippingSubscriber" class="Plugin\B2BConnector\Event\AdminOrderShippingSubscriber" public="true" autowire="true" autoconfigure="true">
+    <service id="Plugin\B2BConnector\Event\AdminOrderSubscriber" class="Plugin\B2BConnector\Event\AdminOrderSubscriber" public="true" autowire="true" autoconfigure="true">
       <tag name="kernel.event_subscriber"/>
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
       <argument type="service" id="Eccube\Repository\OrderRepository"/>
@@ -5685,9 +5685,35 @@ https://www.epsilon.jp/document_dl/index_pdf.html
     <service id="Plugin\B2BConnector\Event\TemplateSubscriber" class="Plugin\B2BConnector\Event\TemplateSubscriber">
       <tag name="kernel.event_subscriber"/>
     </service>
-    <service id="Plugin\B2BConnector\Form\Extension\Admin\AdminProductTypeExtension" class="Plugin\B2BConnector\Form\Extension\Admin\AdminProductTypeExtension"/>
+    <service id="Plugin\B2BConnector\Form\Extension\AdminCustomerTypeExtension" class="Plugin\B2BConnector\Form\Extension\AdminCustomerTypeExtension" public="true" autowire="true" autoconfigure="true">
+      <tag name="form.type_extension"/>
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+    </service>
+    <service id="Plugin\B2BConnector\Form\Extension\AdminOrderTypeExtension" class="Plugin\B2BConnector\Form\Extension\AdminOrderTypeExtension" public="true" autowire="true" autoconfigure="true">
+      <tag name="form.type_extension"/>
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+    </service>
+    <service id="Plugin\B2BConnector\Form\Extension\AdminProductClassTypeExtension" class="Plugin\B2BConnector\Form\Extension\AdminProductClassTypeExtension" public="true" autowire="true" autoconfigure="true">
+      <tag name="form.type_extension"/>
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+    </service>
+    <service id="Plugin\B2BConnector\Form\Extension\AdminProductTypeExtension" class="Plugin\B2BConnector\Form\Extension\AdminProductTypeExtension" public="true" autowire="true" autoconfigure="true">
+      <tag name="form.type_extension"/>
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+    </service>
+    <service id="Plugin\B2BConnector\Form\Extension\AdminShippingTypeExtension" class="Plugin\B2BConnector\Form\Extension\AdminShippingTypeExtension" public="true" autowire="true" autoconfigure="true">
+      <tag name="form.type_extension"/>
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+    </service>
+    <service id="Plugin\B2BConnector\Form\Extension\CustomerAddressTypeExtension" class="Plugin\B2BConnector\Form\Extension\CustomerAddressTypeExtension" public="true" autowire="true" autoconfigure="true">
+      <tag name="form.type_extension"/>
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+    </service>
     <service id="Plugin\B2BConnector\Form\Type\Admin\CustomerAddressExtType" class="Plugin\B2BConnector\Form\Type\Admin\CustomerAddressExtType"/>
     <service id="Plugin\B2BConnector\Form\Type\Admin\CustomerExtType" class="Plugin\B2BConnector\Form\Type\Admin\CustomerExtType"/>
+    <service id="Plugin\B2BConnector\Form\Type\Admin\OrderExtType" class="Plugin\B2BConnector\Form\Type\Admin\OrderExtType" public="true" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
     <service id="Plugin\B2BConnector\Form\Type\Admin\ProductClassExtType" class="Plugin\B2BConnector\Form\Type\Admin\ProductClassExtType"/>
     <service id="Plugin\B2BConnector\Form\Type\Admin\ProductExtType" class="Plugin\B2BConnector\Form\Type\Admin\ProductExtType"/>
     <service id="Plugin\B2BConnector\Form\Type\Admin\ShippingExtType" class="Plugin\B2BConnector\Form\Type\Admin\ShippingExtType"/>
@@ -5712,6 +5738,10 @@ https://www.epsilon.jp/document_dl/index_pdf.html
       <argument type="service" id="monolog.logger"/>
     </service>
     <service id="Plugin\B2BConnector\Migration\Version202510310001" class="Plugin\B2BConnector\Migration\Version202510310001" autowire="true" autoconfigure="true">
+      <argument type="service" id="doctrine.dbal.default_connection"/>
+      <argument type="service" id="monolog.logger"/>
+    </service>
+    <service id="Plugin\B2BConnector\Migration\Version202511110001" class="Plugin\B2BConnector\Migration\Version202511110001" autowire="true" autoconfigure="true">
       <argument type="service" id="doctrine.dbal.default_connection"/>
       <argument type="service" id="monolog.logger"/>
     </service>
@@ -10224,6 +10254,7 @@ https://www.epsilon.jp/document_dl/index_pdf.html
         <argument>Eccube\Form\Type\Install</argument>
         <argument>Eccube\Form\Type\Master</argument>
         <argument>Eccube\Form\Type\Shopping</argument>
+        <argument>Plugin\B2BConnector\Form\Type\Admin</argument>
         <argument>Symfony\Bridge\Doctrine\Form\Type</argument>
       </argument>
       <argument type="collection">
@@ -10327,6 +10358,7 @@ https://www.epsilon.jp/document_dl/index_pdf.html
         <argument>Eccube\Form\Type\Shopping\OrderType</argument>
         <argument>Eccube\Form\Type\Shopping\ShippingType</argument>
         <argument>Eccube\Form\Type\ToggleSwitchType</argument>
+        <argument>Plugin\B2BConnector\Form\Type\Admin\OrderExtType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FormType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\ChoiceType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FileType</argument>
@@ -10336,6 +10368,12 @@ https://www.epsilon.jp/document_dl/index_pdf.html
       <argument type="collection">
         <argument>Eccube\Form\Extension\DoctrineOrmExtension</argument>
         <argument>Eccube\Form\Extension\HelpTypeExtension</argument>
+        <argument>Plugin\B2BConnector\Form\Extension\AdminCustomerTypeExtension</argument>
+        <argument>Plugin\B2BConnector\Form\Extension\AdminOrderTypeExtension</argument>
+        <argument>Plugin\B2BConnector\Form\Extension\AdminProductClassTypeExtension</argument>
+        <argument>Plugin\B2BConnector\Form\Extension\AdminProductTypeExtension</argument>
+        <argument>Plugin\B2BConnector\Form\Extension\AdminShippingTypeExtension</argument>
+        <argument>Plugin\B2BConnector\Form\Extension\CustomerAddressTypeExtension</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\TransformationFailureExtension</argument>
         <argument>Symfony\Component\Form\Extension\HttpFoundation\Type\FormTypeHttpFoundationExtension</argument>
         <argument>Symfony\Component\Form\Extension\Validator\Type\FormTypeValidatorExtension</argument>
@@ -12053,62 +12091,6 @@ https://www.epsilon.jp/document_dl/index_pdf.html
         <argument>0</argument>
       </call>
       <call method="addListener">
-        <argument>admin.customer.delivery.edit.index.initialize</argument>
-        <argument type="collection">
-          <argument type="service_closure" id="Plugin\B2BConnector\Event\AdminCustomerAddressSubscriber"/>
-          <argument>onInitialize</argument>
-        </argument>
-        <argument>0</argument>
-      </call>
-      <call method="addListener">
-        <argument>admin.customer.delivery.edit.index.complete</argument>
-        <argument type="collection">
-          <argument type="service_closure" id="Plugin\B2BConnector\Event\AdminCustomerAddressSubscriber"/>
-          <argument>onComplete</argument>
-        </argument>
-        <argument>0</argument>
-      </call>
-      <call method="addListener">
-        <argument>admin.customer.edit.index.initialize</argument>
-        <argument type="collection">
-          <argument type="service_closure" id="Plugin\B2BConnector\Event\AdminCustomerSubscriber"/>
-          <argument>onInitialize</argument>
-        </argument>
-        <argument>0</argument>
-      </call>
-      <call method="addListener">
-        <argument>admin.customer.edit.index.complete</argument>
-        <argument type="collection">
-          <argument type="service_closure" id="Plugin\B2BConnector\Event\AdminCustomerSubscriber"/>
-          <argument>onComplete</argument>
-        </argument>
-        <argument>0</argument>
-      </call>
-      <call method="addListener">
-        <argument>admin.order.edit.index.initialize</argument>
-        <argument type="collection">
-          <argument type="service_closure" id="Plugin\B2BConnector\Event\AdminOrderShippingSubscriber"/>
-          <argument>onInitialize</argument>
-        </argument>
-        <argument>0</argument>
-      </call>
-      <call method="addListener">
-        <argument>admin.order.edit.index.complete</argument>
-        <argument type="collection">
-          <argument type="service_closure" id="Plugin\B2BConnector\Event\AdminOrderShippingSubscriber"/>
-          <argument>onComplete</argument>
-        </argument>
-        <argument>0</argument>
-      </call>
-      <call method="addListener">
-        <argument>admin.product.edit.initialize</argument>
-        <argument type="collection">
-          <argument type="service_closure" id="Plugin\B2BConnector\Event\AdminProductSubscriber"/>
-          <argument>onProductEditInitialize</argument>
-        </argument>
-        <argument>0</argument>
-      </call>
-      <call method="addListener">
         <argument>kernel.request</argument>
         <argument type="collection">
           <argument type="service_closure" id="Plugin\B2BConnector\Event\AdminRouteGuardSubscriber"/>
@@ -13346,7 +13328,7 @@ https://www.epsilon.jp/document_dl/index_pdf.html
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension">
-      <argument type="service" id=".service_locator.lFmyT1V"/>
+      <argument type="service" id=".service_locator.CxOhg98"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="Eccube\Form\Extension\DoctrineOrmExtension"/>
@@ -13358,6 +13340,27 @@ https://www.epsilon.jp/document_dl/index_pdf.html
           <argument type="service" id="form.type_extension.csrf"/>
           <argument type="service" id="form.type_extension.form.data_collector"/>
           <argument type="service" id="form.type_extension.form.password_hasher"/>
+        </argument>
+        <argument key="Eccube\Form\Type\Admin\CustomerType" type="iterator">
+          <argument type="service" id="Plugin\B2BConnector\Form\Extension\AdminCustomerTypeExtension"/>
+        </argument>
+        <argument key="Eccube\Form\Type\Admin\OrderType" type="iterator">
+          <argument type="service" id="Plugin\B2BConnector\Form\Extension\AdminOrderTypeExtension"/>
+        </argument>
+        <argument key="Eccube\Form\Type\Admin\ProductClassType" type="iterator">
+          <argument type="service" id="Plugin\B2BConnector\Form\Extension\AdminProductClassTypeExtension"/>
+        </argument>
+        <argument key="Eccube\Form\Type\Admin\ProductType" type="iterator">
+          <argument type="service" id="Plugin\B2BConnector\Form\Extension\AdminProductTypeExtension"/>
+        </argument>
+        <argument key="Eccube\Form\Type\Admin\ShippingType" type="iterator">
+          <argument type="service" id="Plugin\B2BConnector\Form\Extension\AdminShippingTypeExtension"/>
+        </argument>
+        <argument key="Eccube\Form\Type\Front\CustomerAddressType" type="iterator">
+          <argument type="service" id="Plugin\B2BConnector\Form\Extension\CustomerAddressTypeExtension"/>
+        </argument>
+        <argument key="Eccube\Form\Type\Shopping\CustomerAddressType" type="iterator">
+          <argument type="service" id="Plugin\B2BConnector\Form\Extension\CustomerAddressTypeExtension"/>
         </argument>
         <argument key="Symfony\Component\Form\Extension\Core\Type\RepeatedType" type="iterator">
           <argument type="service" id="form.type_extension.repeated.validator"/>
@@ -18341,12 +18344,26 @@ https://www.epsilon.jp/document_dl/index_pdf.html
     <service id=".abstract.instanceof.Plugin\B2BConnector\Event\AdminCustomerAddressSubscriber" class="Plugin\B2BConnector\Event\AdminCustomerAddressSubscriber" public="true" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\EventDispatcher\EventSubscriberInterface.0.Plugin\B2BConnector\Event\AdminCustomerSubscriber" class="Plugin\B2BConnector\Event\AdminCustomerSubscriber" public="true" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.Plugin\B2BConnector\Event\AdminCustomerSubscriber" class="Plugin\B2BConnector\Event\AdminCustomerSubscriber" public="true" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Component\EventDispatcher\EventSubscriberInterface.0.Plugin\B2BConnector\Event\AdminOrderShippingSubscriber" class="Plugin\B2BConnector\Event\AdminOrderShippingSubscriber" public="true" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.Plugin\B2BConnector\Event\AdminOrderShippingSubscriber" class="Plugin\B2BConnector\Event\AdminOrderShippingSubscriber" public="true" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\EventDispatcher\EventSubscriberInterface.0.Plugin\B2BConnector\Event\AdminOrderSubscriber" class="Plugin\B2BConnector\Event\AdminOrderSubscriber" public="true" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.Plugin\B2BConnector\Event\AdminOrderSubscriber" class="Plugin\B2BConnector\Event\AdminOrderSubscriber" public="true" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\EventDispatcher\EventSubscriberInterface.0.Plugin\B2BConnector\Event\AdminProductSubscriber" class="Plugin\B2BConnector\Event\AdminProductSubscriber" public="true" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.Plugin\B2BConnector\Event\AdminProductSubscriber" class="Plugin\B2BConnector\Event\AdminProductSubscriber" public="true" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\EventDispatcher\EventSubscriberInterface.0.Plugin\B2BConnector\Event\AdminRouteGuardSubscriber" class="Plugin\B2BConnector\Event\AdminRouteGuardSubscriber" public="true" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.Plugin\B2BConnector\Event\AdminRouteGuardSubscriber" class="Plugin\B2BConnector\Event\AdminRouteGuardSubscriber" public="true" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeExtensionInterface.0.Plugin\B2BConnector\Form\Extension\AdminCustomerTypeExtension" class="Plugin\B2BConnector\Form\Extension\AdminCustomerTypeExtension" public="true" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.Plugin\B2BConnector\Form\Extension\AdminCustomerTypeExtension" class="Plugin\B2BConnector\Form\Extension\AdminCustomerTypeExtension" public="true" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeExtensionInterface.0.Plugin\B2BConnector\Form\Extension\AdminOrderTypeExtension" class="Plugin\B2BConnector\Form\Extension\AdminOrderTypeExtension" public="true" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.Plugin\B2BConnector\Form\Extension\AdminOrderTypeExtension" class="Plugin\B2BConnector\Form\Extension\AdminOrderTypeExtension" public="true" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeExtensionInterface.0.Plugin\B2BConnector\Form\Extension\AdminProductClassTypeExtension" class="Plugin\B2BConnector\Form\Extension\AdminProductClassTypeExtension" public="true" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.Plugin\B2BConnector\Form\Extension\AdminProductClassTypeExtension" class="Plugin\B2BConnector\Form\Extension\AdminProductClassTypeExtension" public="true" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeExtensionInterface.0.Plugin\B2BConnector\Form\Extension\AdminProductTypeExtension" class="Plugin\B2BConnector\Form\Extension\AdminProductTypeExtension" public="true" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.Plugin\B2BConnector\Form\Extension\AdminProductTypeExtension" class="Plugin\B2BConnector\Form\Extension\AdminProductTypeExtension" public="true" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeExtensionInterface.0.Plugin\B2BConnector\Form\Extension\AdminShippingTypeExtension" class="Plugin\B2BConnector\Form\Extension\AdminShippingTypeExtension" public="true" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.Plugin\B2BConnector\Form\Extension\AdminShippingTypeExtension" class="Plugin\B2BConnector\Form\Extension\AdminShippingTypeExtension" public="true" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeExtensionInterface.0.Plugin\B2BConnector\Form\Extension\CustomerAddressTypeExtension" class="Plugin\B2BConnector\Form\Extension\CustomerAddressTypeExtension" public="true" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.Plugin\B2BConnector\Form\Extension\CustomerAddressTypeExtension" class="Plugin\B2BConnector\Form\Extension\CustomerAddressTypeExtension" public="true" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.Plugin\B2BConnector\Form\Type\Admin\OrderExtType" class="Plugin\B2BConnector\Form\Type\Admin\OrderExtType" public="true" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.Plugin\B2BConnector\Form\Type\Admin\OrderExtType" class="Plugin\B2BConnector\Form\Type\Admin\OrderExtType" public="true" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.Plugin\Coupon42\Controller\Admin\CouponController" class="Plugin\Coupon42\Controller\Admin\CouponController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.Plugin\Coupon42\Controller\Admin\CouponController" class="Plugin\Coupon42\Controller\Admin\CouponController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.Plugin\Coupon42\Controller\Admin\CouponController" class="Plugin\Coupon42\Controller\Admin\CouponController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -19795,7 +19812,7 @@ https://www.epsilon.jp/document_dl/index_pdf.html
       <argument type="service" id="argument_resolver.query_parameter_value_resolver"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.lFmyT1V" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.CxOhg98" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="Eccube\Form\Type\AddCartType" type="service_closure" id="Eccube\Form\Type\AddCartType"/>
@@ -19898,6 +19915,7 @@ https://www.epsilon.jp/document_dl/index_pdf.html
         <argument key="Eccube\Form\Type\Shopping\OrderType" type="service_closure" id="Eccube\Form\Type\Shopping\OrderType"/>
         <argument key="Eccube\Form\Type\Shopping\ShippingType" type="service_closure" id="Eccube\Form\Type\Shopping\ShippingType"/>
         <argument key="Eccube\Form\Type\ToggleSwitchType" type="service_closure" id="Eccube\Form\Type\ToggleSwitchType"/>
+        <argument key="Plugin\B2BConnector\Form\Type\Admin\OrderExtType" type="service_closure" id="Plugin\B2BConnector\Form\Type\Admin\OrderExtType"/>
         <argument key="Symfony\Bridge\Doctrine\Form\Type\EntityType" type="service_closure" id="form.type.entity"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\ChoiceType" type="service_closure" id="form.type.choice"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\ColorType" type="service_closure" id="form.type.color"/>
@@ -23416,7 +23434,7 @@ https://www.epsilon.jp/document_dl/index_pdf.html
     <service id=".service_locator.sZ2DIku" alias=".service_locator.QIfhf.M"/>
     <service id=".service_locator.VdSBahQ" alias=".service_locator.7kHUCmk"/>
     <service id=".service_locator.RGe.Eww" alias=".service_locator.wmwio2R"/>
-    <service id=".service_locator.yiHz2Bb" alias=".service_locator.lFmyT1V"/>
+    <service id=".service_locator._8F4TRV" alias=".service_locator.CxOhg98"/>
     <service id=".service_locator.xsEevEr" alias=".service_locator.lVEU2BP"/>
     <service id=".service_locator.O24_MAy" alias=".service_locator.yY.p4P7"/>
     <service id=".service_locator..BLmr.F" alias=".service_locator.3__cpIM"/>

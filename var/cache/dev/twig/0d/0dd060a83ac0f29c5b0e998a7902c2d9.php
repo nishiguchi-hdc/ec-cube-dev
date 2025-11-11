@@ -369,7 +369,7 @@ class __TwigTemplate_f0064be455861e3e196d7cc7af1266f6 extends Template
 
 
 
-                            <div class=\"row mb-2\">
+                            <div class=\"row mb-2 d-none\">
                                 <div class=\"col-3\">
                                     <span>";
         // line 150
@@ -406,7 +406,7 @@ class __TwigTemplate_f0064be455861e3e196d7cc7af1266f6 extends Template
                                 </div>
                             </div>
 
-                            <div class=\"row mb-2\">
+                            <div class=\"row mb-2 d-none\">
                                 <div class=\"col-3\">
                                     <span>";
         // line 169
@@ -711,7 +711,7 @@ file that was distributed with this source code.
 
 
 
-                            <div class=\"row mb-2\">
+                            <div class=\"row mb-2 d-none\">
                                 <div class=\"col-3\">
                                     <span>{{ 'admin.common.name'|trans }}</span>
                                     <span class=\"badge bg-primary ms-1\">{{ 'admin.common.required'|trans }}</span>
@@ -730,7 +730,7 @@ file that was distributed with this source code.
                                 </div>
                             </div>
 
-                            <div class=\"row mb-2\">
+                            <div class=\"row mb-2 d-none\">
                                 <div class=\"col-3\">
                                     <span>{{ 'admin.common.kana'|trans }}</span>
                                     <span class=\"badge bg-primary ms-1\">{{ 'admin.common.required'|trans }}</span>
