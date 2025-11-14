@@ -1616,7 +1616,7 @@ https://www.epsilon.jp/document_dl/index_pdf.html
       <argument type="service" id="security.user_password_hasher"/>
       <argument type="service" id="Eccube\Repository\OrderRepository"/>
       <argument type="service" id="Eccube\Repository\Master\OrderStatusRepository"/>
-      <argument type="service" id="Eccube\Repository\CustomerRepository"/>
+      <argument type="service" id="Plugin\B2BConnector\Repository\CustomerRepositoryDecorator"/>
       <argument type="service" id="Eccube\Repository\ProductRepository"/>
       <argument type="service" id="Eccube\Service\PluginApiService"/>
       <call method="setEccubeConfig">
@@ -1914,7 +1914,7 @@ https://www.epsilon.jp/document_dl/index_pdf.html
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <argument type="service" id="Eccube\Repository\Master\PageMaxRepository"/>
-      <argument type="service" id="Eccube\Repository\CustomerRepository"/>
+      <argument type="service" id="Plugin\B2BConnector\Repository\CustomerRepositoryDecorator"/>
       <argument type="service" id="Eccube\Repository\Master\SexRepository"/>
       <argument type="service" id="Eccube\Repository\Master\PrefRepository"/>
       <argument type="service" id="Eccube\Service\MailService"/>
@@ -1976,7 +1976,7 @@ https://www.epsilon.jp/document_dl/index_pdf.html
     <service id="Eccube\Controller\Admin\Customer\CustomerEditController" class="Eccube\Controller\Admin\Customer\CustomerEditController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
-      <argument type="service" id="Eccube\Repository\CustomerRepository"/>
+      <argument type="service" id="Plugin\B2BConnector\Repository\CustomerRepositoryDecorator"/>
       <argument type="service" id="security.user_password_hasher"/>
       <argument type="service" id="Eccube\Repository\OrderRepository"/>
       <argument type="service" id="Eccube\Repository\Master\PageMaxRepository"/>
@@ -2042,7 +2042,7 @@ https://www.epsilon.jp/document_dl/index_pdf.html
       <argument type="service" id="Eccube\Repository\Master\DeviceTypeRepository"/>
       <argument type="service" id="Eccube\Repository\ProductRepository"/>
       <argument type="service" id="Eccube\Repository\CategoryRepository"/>
-      <argument type="service" id="Eccube\Repository\CustomerRepository"/>
+      <argument type="service" id="Plugin\B2BConnector\Repository\CustomerRepositoryDecorator"/>
       <argument type="service" id="serializer"/>
       <argument type="service" id="Eccube\Repository\DeliveryRepository"/>
       <argument type="service" id="eccube.purchase.flow.order"/>
@@ -2114,7 +2114,7 @@ https://www.epsilon.jp/document_dl/index_pdf.html
       <tag name="container.service_subscriber"/>
       <argument type="service" id="eccube.purchase.flow.order"/>
       <argument type="service" id="Eccube\Service\CsvExportService"/>
-      <argument type="service" id="Eccube\Repository\CustomerRepository"/>
+      <argument type="service" id="Plugin\B2BConnector\Repository\CustomerRepositoryDecorator"/>
       <argument type="service" id="Eccube\Repository\PaymentRepository"/>
       <argument type="service" id="Eccube\Repository\Master\SexRepository"/>
       <argument type="service" id="Eccube\Repository\Master\OrderStatusRepository"/>
@@ -3188,7 +3188,7 @@ https://www.epsilon.jp/document_dl/index_pdf.html
       <argument type="service" id="Eccube\Repository\Master\CustomerStatusRepository"/>
       <argument type="service" id="Eccube\Service\MailService"/>
       <argument type="service" id="Eccube\Repository\BaseInfoRepository"/>
-      <argument type="service" id="Eccube\Repository\CustomerRepository"/>
+      <argument type="service" id="Plugin\B2BConnector\Repository\CustomerRepositoryDecorator"/>
       <argument type="service" id="security.user_password_hasher"/>
       <argument type="service" id="debug.validator"/>
       <argument type="service" id="security.token_storage"/>
@@ -3223,7 +3223,7 @@ https://www.epsilon.jp/document_dl/index_pdf.html
       <tag name="container.service_subscriber"/>
       <argument type="service" id="debug.validator"/>
       <argument type="service" id="Eccube\Service\MailService"/>
-      <argument type="service" id="Eccube\Repository\CustomerRepository"/>
+      <argument type="service" id="Plugin\B2BConnector\Repository\CustomerRepositoryDecorator"/>
       <argument type="service" id="security.user_password_hasher"/>
       <call method="setEccubeConfig">
         <argument type="service" id="Eccube\Common\EccubeConfig"/>
@@ -3342,7 +3342,7 @@ https://www.epsilon.jp/document_dl/index_pdf.html
     <service id="Eccube\Controller\Mypage\ChangeController" class="Eccube\Controller\Mypage\ChangeController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
-      <argument type="service" id="Eccube\Repository\CustomerRepository"/>
+      <argument type="service" id="Plugin\B2BConnector\Repository\CustomerRepositoryDecorator"/>
       <argument type="service" id="security.user_password_hasher"/>
       <argument type="service" id="security.token_storage"/>
       <argument type="service" id="Eccube\Repository\BaseInfoRepository"/>
@@ -4410,14 +4410,6 @@ https://www.epsilon.jp/document_dl/index_pdf.html
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
-    <service id="Eccube\Repository\CustomerRepository" class="Eccube\Repository\CustomerRepository" autowire="true" autoconfigure="true">
-      <tag name="doctrine.repository_service"/>
-      <argument type="service" id="doctrine"/>
-      <argument type="service" id="Eccube\Doctrine\Query\Queries"/>
-      <argument type="service" id="doctrine.orm.default_entity_manager"/>
-      <argument type="service" id="Eccube\Repository\OrderRepository"/>
-      <argument type="service" id="Eccube\Common\EccubeConfig"/>
-    </service>
     <service id="Eccube\Repository\DeliveryDurationRepository" class="Eccube\Repository\DeliveryDurationRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
@@ -4641,7 +4633,7 @@ https://www.epsilon.jp/document_dl/index_pdf.html
       <argument type="service" id="Eccube\Common\EccubeConfig"/>
     </service>
     <service id="Eccube\Security\Core\User\CustomerProvider" class="Eccube\Security\Core\User\CustomerProvider" autowire="true" autoconfigure="true">
-      <argument type="service" id="Eccube\Repository\CustomerRepository"/>
+      <argument type="service" id="Plugin\B2BConnector\Repository\CustomerRepositoryDecorator"/>
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
     </service>
     <service id="Eccube\Security\Core\User\MemberProvider" class="Eccube\Security\Core\User\MemberProvider" autowire="true" autoconfigure="true">
@@ -4710,7 +4702,7 @@ https://www.epsilon.jp/document_dl/index_pdf.html
       <argument type="service" id="Eccube\Repository\Master\CsvTypeRepository"/>
       <argument type="service" id="Eccube\Repository\OrderRepository"/>
       <argument type="service" id="Eccube\Repository\ShippingRepository"/>
-      <argument type="service" id="Eccube\Repository\CustomerRepository"/>
+      <argument type="service" id="Plugin\B2BConnector\Repository\CustomerRepositoryDecorator"/>
       <argument type="service" id="Eccube\Repository\ProductRepository"/>
       <argument type="service" id="Eccube\Common\EccubeConfig"/>
       <argument type="service" id="form.factory"/>
@@ -5146,7 +5138,7 @@ https://www.epsilon.jp/document_dl/index_pdf.html
       <argument type="service" id="eccube.purchase.flow.cart"/>
       <argument type="service" id="Eccube\Service\OrderHelper"/>
       <argument type="service" id="Eccube\Service\CartService"/>
-      <argument type="service" id="Eccube\Repository\CustomerRepository"/>
+      <argument type="service" id="Plugin\B2BConnector\Repository\CustomerRepositoryDecorator"/>
       <argument type="service" id="Eccube\Repository\ClassCategoryRepository"/>
       <argument type="service" id="Eccube\Repository\ProductRepository"/>
       <argument type="service" id="Eccube\Repository\ProductClassRepository"/>
@@ -5188,7 +5180,7 @@ https://www.epsilon.jp/document_dl/index_pdf.html
       <argument type="service" id="Eccube\Service\CartService"/>
       <argument type="service" id="Eccube\Service\MailService"/>
       <argument type="service" id="Eccube\Service\OrderHelper"/>
-      <argument type="service" id="Eccube\Repository\CustomerRepository"/>
+      <argument type="service" id="Plugin\B2BConnector\Repository\CustomerRepositoryDecorator"/>
       <argument type="service" id="Eccube\Repository\OrderRepository"/>
       <argument type="service" id="Eccube\Repository\Master\OrderStatusRepository"/>
       <argument type="service" id="Eccube\Repository\Master\PrefRepository"/>
@@ -5291,7 +5283,7 @@ https://www.epsilon.jp/document_dl/index_pdf.html
     <service id="Plugin\AmazonPayV2_42_Bundle\Service\AmazonIPNService" class="Plugin\AmazonPayV2_42_Bundle\Service\AmazonIPNService" autowire="true" autoconfigure="true">
       <argument type="service" id="Eccube\Common\EccubeConfig"/>
       <argument type="service" id="Eccube\Service\MailService"/>
-      <argument type="service" id="Eccube\Repository\CustomerRepository"/>
+      <argument type="service" id="Plugin\B2BConnector\Repository\CustomerRepositoryDecorator"/>
       <argument type="service" id="Eccube\Repository\OrderRepository"/>
       <argument type="service" id="Eccube\Repository\Master\OrderStatusRepository"/>
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
@@ -5302,7 +5294,7 @@ https://www.epsilon.jp/document_dl/index_pdf.html
       <argument type="service" id=".service_locator.DNacaQy"/>
     </service>
     <service id="Plugin\AmazonPayV2_42_Bundle\Service\AmazonOrderHelper" class="Plugin\AmazonPayV2_42_Bundle\Service\AmazonOrderHelper" autowire="true" autoconfigure="true">
-      <argument type="service" id="Eccube\Repository\CustomerRepository"/>
+      <argument type="service" id="Plugin\B2BConnector\Repository\CustomerRepositoryDecorator"/>
       <argument type="service" id="Eccube\Repository\BaseInfoRepository"/>
       <argument type="service" id="Eccube\Repository\PaymentRepository"/>
       <argument type="service" id="Eccube\Repository\PluginRepository"/>
@@ -5324,7 +5316,7 @@ https://www.epsilon.jp/document_dl/index_pdf.html
     <service id="Plugin\AmazonPayV2_42_Bundle\Service\AmazonRequestService" class="Plugin\AmazonPayV2_42_Bundle\Service\AmazonRequestService" autowire="true" autoconfigure="true">
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
       <argument type="service" id="Eccube\Repository\BaseInfoRepository"/>
-      <argument type="service" id="Eccube\Repository\CustomerRepository"/>
+      <argument type="service" id="Plugin\B2BConnector\Repository\CustomerRepositoryDecorator"/>
       <argument type="service" id="Eccube\Service\CartService"/>
       <argument type="service" id="Eccube\Service\PurchaseFlow\PurchaseFlow"/>
       <argument type="service" id="Eccube\Common\EccubeConfig"/>
@@ -5549,7 +5541,7 @@ https://www.epsilon.jp/document_dl/index_pdf.html
       </call>
     </service>
     <service id="Plugin\Api42\GraphQL\Query\CustomersQuery" class="Plugin\Api42\GraphQL\Query\CustomersQuery" autowire="true" autoconfigure="true">
-      <argument type="service" id="Eccube\Repository\CustomerRepository"/>
+      <argument type="service" id="Plugin\B2BConnector\Repository\CustomerRepositoryDecorator"/>
       <call method="setPaginator">
         <argument type="service" id="knp_paginator"/>
       </call>
@@ -5746,6 +5738,16 @@ https://www.epsilon.jp/document_dl/index_pdf.html
       <argument type="service" id="monolog.logger"/>
     </service>
     <service id="Plugin\B2BConnector\PluginManager" class="Plugin\B2BConnector\PluginManager"/>
+    <service id="Plugin\B2BConnector\Repository\CustomerRepositoryDecorator" class="Plugin\B2BConnector\Repository\CustomerRepositoryDecorator" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <tag name="container.decorator" id="Eccube\Repository\CustomerRepository" inner="Plugin\B2BConnector\Repository\CustomerRepositoryDecorator.inner"/>
+      <argument type="service" id="Plugin\B2BConnector\Repository\CustomerRepositoryDecorator.inner"/>
+      <argument type="service" id="doctrine"/>
+      <argument type="service" id="Eccube\Doctrine\Query\Queries"/>
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <argument type="service" id="Eccube\Repository\OrderRepository"/>
+      <argument type="service" id="Eccube\Common\EccubeConfig"/>
+    </service>
     <service id="Plugin\Coupon42\Controller\Admin\CouponController" class="Plugin\Coupon42\Controller\Admin\CouponController" autowire="true" autoconfigure="true">
       <argument type="service" id="Plugin\Coupon42\Repository\CouponRepository"/>
       <argument type="service" id="Plugin\Coupon42\Service\CouponService"/>
@@ -6302,7 +6304,7 @@ https://www.epsilon.jp/document_dl/index_pdf.html
       <argument type="service" id="Plugin\EccubePaymentLite42\Service\ChangeCardNotificationMailService"/>
       <argument type="service" id="Plugin\EccubePaymentLite42\Service\IsActiveRegularService"/>
       <argument type="service" id="Plugin\EccubePaymentLite42\Service\GetCustomerForSendChangeCardMailService"/>
-      <argument type="service" id="Eccube\Repository\CustomerRepository"/>
+      <argument type="service" id="Plugin\B2BConnector\Repository\CustomerRepositoryDecorator"/>
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
       <argument type="service" id="Plugin\EccubePaymentLite42\Repository\ConfigRepository"/>
     </service>
@@ -7664,7 +7666,7 @@ https://www.epsilon.jp/document_dl/index_pdf.html
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
       <argument type="service" id="request_stack"/>
       <argument type="service" id="Plugin\EccubePaymentLite42\Service\GmoEpsilonRequest\RequestGetUserInfoService"/>
-      <argument type="service" id="Eccube\Repository\CustomerRepository"/>
+      <argument type="service" id="Plugin\B2BConnector\Repository\CustomerRepositoryDecorator"/>
       <argument type="service" id="Plugin\EccubePaymentLite42\Repository\ConfigRepository"/>
       <argument type="service" id="Plugin\EccubePaymentLite42\Service\GetCardExpireDateTimeService"/>
     </service>
@@ -7714,7 +7716,7 @@ https://www.epsilon.jp/document_dl/index_pdf.html
     <service id="Plugin\EccubePaymentLite42\Service\Util\CommonUtil" class="Plugin\EccubePaymentLite42\Service\Util\CommonUtil" autowire="true" autoconfigure="true"/>
     <service id="Plugin\MailMagazine42\Controller\MailMagazineController" class="Plugin\MailMagazine42\Controller\MailMagazineController" autowire="true" autoconfigure="true">
       <argument type="service" id="Eccube\Repository\Master\PageMaxRepository"/>
-      <argument type="service" id="Eccube\Repository\CustomerRepository"/>
+      <argument type="service" id="Plugin\B2BConnector\Repository\CustomerRepositoryDecorator"/>
       <argument type="service" id="Plugin\MailMagazine42\Repository\MailMagazineTemplateRepository"/>
       <argument type="service" id="Plugin\MailMagazine42\Service\MailMagazineService"/>
       <call method="setEccubeConfig">
@@ -7826,7 +7828,7 @@ https://www.epsilon.jp/document_dl/index_pdf.html
       <argument type="service" id="mailer.mailer"/>
       <argument type="service" id="Eccube\Repository\BaseInfoRepository"/>
       <argument type="service" id="Eccube\Common\EccubeConfig"/>
-      <argument type="service" id="Eccube\Repository\CustomerRepository"/>
+      <argument type="service" id="Plugin\B2BConnector\Repository\CustomerRepositoryDecorator"/>
       <argument type="service" id="Plugin\MailMagazine42\Repository\MailMagazineSendHistoryRepository"/>
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
     </service>
@@ -8608,7 +8610,7 @@ https://www.epsilon.jp/document_dl/index_pdf.html
       <argument type="service" id="security.user_password_hasher"/>
       <argument type="service" id="Eccube\Repository\MemberRepository"/>
       <argument type="service" id="Eccube\Repository\CategoryRepository"/>
-      <argument type="service" id="Eccube\Repository\CustomerRepository"/>
+      <argument type="service" id="Plugin\B2BConnector\Repository\CustomerRepositoryDecorator"/>
       <argument type="service" id="Eccube\Repository\ClassNameRepository"/>
       <argument type="service" id="Eccube\Repository\ClassCategoryRepository"/>
       <argument type="service" id="Eccube\Repository\DeliveryDurationRepository"/>
@@ -9301,7 +9303,7 @@ https://www.epsilon.jp/document_dl/index_pdf.html
       <call method="append">
         <argument type="service">
           <service class="Plugin\Api42\GraphQL\Query\CustomersQuery" autowire="true" autoconfigure="true">
-            <argument type="service" id="Eccube\Repository\CustomerRepository"/>
+            <argument type="service" id="Plugin\B2BConnector\Repository\CustomerRepositoryDecorator"/>
             <call method="setPaginator">
               <argument type="service" id="knp_paginator"/>
             </call>
@@ -10109,6 +10111,7 @@ https://www.epsilon.jp/document_dl/index_pdf.html
         <argument>C:\xampp\htdocs\ec-cube-dev\vendor\symfony\validator/Resources/translations</argument>
         <argument>C:\xampp\htdocs\ec-cube-dev\vendor\symfony\form/Resources/translations</argument>
         <argument>C:\xampp\htdocs\ec-cube-dev\vendor\symfony\security-core/Resources/translations</argument>
+        <argument>C:\xampp\htdocs\ec-cube-dev/app/Plugin/B2BConnector/Resource/locale</argument>
         <argument>C:\xampp\htdocs\ec-cube-dev/src/Eccube/Resource/locale/</argument>
         <argument>C:\xampp\htdocs\ec-cube-dev/app/Customize/Resource/locale/</argument>
       </argument>
@@ -10146,6 +10149,7 @@ https://www.epsilon.jp/document_dl/index_pdf.html
         <argument>C:\xampp\htdocs\ec-cube-dev\vendor\symfony\validator/Resources/translations</argument>
         <argument>C:\xampp\htdocs\ec-cube-dev\vendor\symfony\form/Resources/translations</argument>
         <argument>C:\xampp\htdocs\ec-cube-dev\vendor\symfony\security-core/Resources/translations</argument>
+        <argument>C:\xampp\htdocs\ec-cube-dev/app/Plugin/B2BConnector/Resource/locale</argument>
         <argument>C:\xampp\htdocs\ec-cube-dev/src/Eccube/Resource/locale/</argument>
         <argument>C:\xampp\htdocs\ec-cube-dev/app/Customize/Resource/locale/</argument>
       </argument>
@@ -11212,6 +11216,7 @@ https://www.epsilon.jp/document_dl/index_pdf.html
           <argument>C:\xampp\htdocs\ec-cube-dev\vendor\symfony\form/Resources/translations</argument>
           <argument>C:\xampp\htdocs\ec-cube-dev\vendor\symfony\security-core/Resources/translations</argument>
           <argument>C:\xampp\htdocs\ec-cube-dev\vendor\knplabs\knp-paginator-bundle/translations</argument>
+          <argument>C:\xampp\htdocs\ec-cube-dev/app/Plugin/B2BConnector/Resource/locale</argument>
           <argument>C:\xampp\htdocs\ec-cube-dev/src/Eccube/Resource/locale/</argument>
           <argument>C:\xampp\htdocs\ec-cube-dev/app/Customize/Resource/locale/</argument>
           <argument>C:\xampp\htdocs\ec-cube-dev\vendor\symfony\framework-bundle/translations</argument>
@@ -11238,6 +11243,7 @@ https://www.epsilon.jp/document_dl/index_pdf.html
             <argument>C:\xampp\htdocs\ec-cube-dev\vendor\symfony\form/Resources/translations</argument>
             <argument>C:\xampp\htdocs\ec-cube-dev\vendor\symfony\security-core/Resources/translations</argument>
             <argument>C:\xampp\htdocs\ec-cube-dev\vendor\knplabs\knp-paginator-bundle/translations</argument>
+            <argument>app/Plugin/B2BConnector/Resource/locale</argument>
             <argument>src/Eccube/Resource/locale/</argument>
             <argument>app/Customize/Resource/locale/</argument>
             <argument>C:\xampp\htdocs\ec-cube-dev\vendor\symfony\framework-bundle/translations</argument>
@@ -18364,6 +18370,8 @@ https://www.epsilon.jp/document_dl/index_pdf.html
     <service id=".abstract.instanceof.Plugin\B2BConnector\Form\Extension\CustomerAddressTypeExtension" class="Plugin\B2BConnector\Form\Extension\CustomerAddressTypeExtension" public="true" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.Plugin\B2BConnector\Form\Type\Admin\OrderExtType" class="Plugin\B2BConnector\Form\Type\Admin\OrderExtType" public="true" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.Plugin\B2BConnector\Form\Type\Admin\OrderExtType" class="Plugin\B2BConnector\Form\Type\Admin\OrderExtType" public="true" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.Plugin\B2BConnector\Repository\CustomerRepositoryDecorator" class="Plugin\B2BConnector\Repository\CustomerRepositoryDecorator" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.Plugin\B2BConnector\Repository\CustomerRepositoryDecorator" class="Plugin\B2BConnector\Repository\CustomerRepositoryDecorator" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.Plugin\Coupon42\Controller\Admin\CouponController" class="Plugin\Coupon42\Controller\Admin\CouponController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.Plugin\Coupon42\Controller\Admin\CouponController" class="Plugin\Coupon42\Controller\Admin\CouponController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.Plugin\Coupon42\Controller\Admin\CouponController" class="Plugin\Coupon42\Controller\Admin\CouponController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -19986,7 +19994,7 @@ https://www.epsilon.jp/document_dl/index_pdf.html
         <argument key="Eccube\Repository\CsvRepository" type="service_closure" id="Eccube\Repository\CsvRepository"/>
         <argument key="Eccube\Repository\CustomerAddressRepository" type="service_closure" id="Eccube\Repository\CustomerAddressRepository"/>
         <argument key="Eccube\Repository\CustomerFavoriteProductRepository" type="service_closure" id="Eccube\Repository\CustomerFavoriteProductRepository"/>
-        <argument key="Eccube\Repository\CustomerRepository" type="service_closure" id="Eccube\Repository\CustomerRepository"/>
+        <argument key="Eccube\Repository\CustomerRepository" type="service_closure" id="Plugin\B2BConnector\Repository\CustomerRepositoryDecorator"/>
         <argument key="Eccube\Repository\DeliveryDurationRepository" type="service_closure" id="Eccube\Repository\DeliveryDurationRepository"/>
         <argument key="Eccube\Repository\DeliveryFeeRepository" type="service_closure" id="Eccube\Repository\DeliveryFeeRepository"/>
         <argument key="Eccube\Repository\DeliveryRepository" type="service_closure" id="Eccube\Repository\DeliveryRepository"/>
@@ -21754,6 +21762,13 @@ https://www.epsilon.jp/document_dl/index_pdf.html
       <argument type="collection"/>
       <argument>%eccube.twig_sandbox.allowed_functions%</argument>
     </service>
+    <service id="Plugin\B2BConnector\Repository\CustomerRepositoryDecorator.inner" class="Eccube\Repository\CustomerRepository" autowire="true" autoconfigure="true">
+      <argument type="service" id="doctrine"/>
+      <argument type="service" id="Eccube\Doctrine\Query\Queries"/>
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <argument type="service" id="Eccube\Repository\OrderRepository"/>
+      <argument type="service" id="Eccube\Common\EccubeConfig"/>
+    </service>
     <service id="debug.event_dispatcher.inner" class="Symfony\Component\EventDispatcher\EventDispatcher"/>
     <service id="debug.controller_resolver.inner" class="Symfony\Bundle\FrameworkBundle\Controller\ControllerResolver">
       <argument type="service" id="service_container"/>
@@ -23441,6 +23456,7 @@ https://www.epsilon.jp/document_dl/index_pdf.html
     <service id=".service_locator.DdMey.j" alias=".service_locator.pTzYO3N"/>
     <service id="validator" alias="debug.validator"/>
     <service id="eccube.twig_sandbox.policy" alias="Eccube\Twig\Sandbox\SecurityPolicyDecorator"/>
+    <service id="Eccube\Repository\CustomerRepository" alias="Plugin\B2BConnector\Repository\CustomerRepositoryDecorator"/>
     <service id="event_dispatcher" alias="debug.event_dispatcher" public="true"/>
     <service id="controller_resolver" alias="debug.controller_resolver"/>
     <service id="argument_resolver" alias="debug.argument_resolver"/>

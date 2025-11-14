@@ -69,7 +69,10 @@ class CustomerExt
 {
     /**
      * @ORM\\Id
-     * @ORM\\OneToOne(targetEntity=\"Eccube\\Entity\\Customer\")
+     * @ORM\\OneToOne(
+     *   targetEntity=\"Eccube\\Entity\\Customer\",
+     *   inversedBy=\"customerExt\"
+     * )
      * @ORM\\JoinColumn(name=\"customer_id\", referencedColumnName=\"id\", onDelete=\"CASCADE\")
      */
     private \$Customer;
@@ -228,7 +231,10 @@ class CustomerExt
 {
     /**
      * @ORM\\Id
-     * @ORM\\OneToOne(targetEntity=\"Eccube\\Entity\\Customer\")
+     * @ORM\\OneToOne(
+     *   targetEntity=\"Eccube\\Entity\\Customer\",
+     *   inversedBy=\"customerExt\"
+     * )
      * @ORM\\JoinColumn(name=\"customer_id\", referencedColumnName=\"id\", onDelete=\"CASCADE\")
      */
     private \$Customer;

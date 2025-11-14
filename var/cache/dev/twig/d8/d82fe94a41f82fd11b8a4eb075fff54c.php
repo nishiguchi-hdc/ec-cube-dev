@@ -134,6 +134,14 @@ class __TwigTemplate_b38fe3c72d079ec70804b1a37898d093 extends Template
     public: true
     autowire: true
     autoconfigure: true
+
+  Plugin\\B2BConnector\\Repository\\CustomerRepositoryDecorator:
+    decorates: 'Eccube\\Repository\\CustomerRepository'
+    autowire: true
+    autoconfigure: true
+    public: false
+    arguments:
+      \$inner: '@Plugin\\B2BConnector\\Repository\\CustomerRepositoryDecorator.inner'
 ";
         
         $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
@@ -241,6 +249,14 @@ class __TwigTemplate_b38fe3c72d079ec70804b1a37898d093 extends Template
     public: true
     autowire: true
     autoconfigure: true
+
+  Plugin\\B2BConnector\\Repository\\CustomerRepositoryDecorator:
+    decorates: 'Eccube\\Repository\\CustomerRepository'
+    autowire: true
+    autoconfigure: true
+    public: false
+    arguments:
+      \$inner: '@Plugin\\B2BConnector\\Repository\\CustomerRepositoryDecorator.inner'
 ", "B2BConnector/Resource/config/services.yaml", "C:\\xampp\\htdocs\\ec-cube-dev\\app\\Plugin\\B2BConnector\\Resource\\config\\services.yaml");
     }
     
